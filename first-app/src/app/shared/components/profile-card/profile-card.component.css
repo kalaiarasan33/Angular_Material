@@ -1,0 +1,30 @@
+.post-section{
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    width: 300px;
+    margin-bottom: 15px;
+}
+
+.post-section .post-title{
+    border-bottom:1px solid #eeffee;
+    padding: 5px 15px;
+}
+
+.post-section .post-title h4{
+    margin: 0;
+}
+
+.post-section img{
+    width: 100%;
+    height: 200px;
+}
+
+.post-section .post-tool{
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+
+}
+
+.post-section .post-tool a{
+    padding-right: 15px;
+}

@@ -1,0 +1,73 @@
+<h4>NgIf Example</h4>
+<div *ngIf="toShow;else dontShowTmp">
+  <h2 >{{firstname+' '+lastname}}</h2>
+</div>
+<ng-template #dontShowTmp>
+  <h5 >{{firstname+' '+lastname}}</h5>
+</ng-template>
+<hr/>
+<h4>Style Attribute Dir Example</h4>
+<p [style.color]="pcolor"
+    [style.fontWeight]="'800'"
+    [style.display]="toShow ? 'none':'block'">
+  Voluptates facere necessitatibus recusandae.
+</p>
+<p [ngStyle]="{'color': isError ? 'red':'blue'}">
+  Voluptates facere necessitatibus recusandae.
+</p>
+<p [ngClass]="{'isYellow':makeYellow,'isPink':!makeYellow}">
+  Voluptates facere necessitatibus recusandae.
+</p>
+
+<hr/>
+<h4>For Dir Example</h4>
+<ul>
+  <li *ngFor="let name of nameArr; let i = index" >
+    {{name+' '+(i+1)}} <button (click)="onRemove(i)">Remove</button>
+  </li>
+
+</ul>
+<input type="text" [value]="name" (input)="onKeyUp($event)"/>
+{{name}}
+<input type="text" [ngModel]="name" (ngModelChange)="onModelChange($event)"/>
+<input type="text" [(ngModel)]="name" />
+<br/>
+<button (click)="addName()">Add Name</button>
+
+<div>
+  <h4>My practical</h4>
+
+  <button (click)="changecolor('red')">Red</button>
+  <button (click)="changecolor('blue')">Blue</button>
+  <p [style.color]="praccolor">Dynamic</p>
+  <p [ngClass]="{'isRed':changecolors,'isBlue':!changecolors}">Dynamic</p>
+ 
+
+</div>
+<div>
+<button (click)="changeimage()" >ToggleImage</button>
+
+<img [src]="srcURL" />
+
+</div>
+
+
+<div>
+  <h3>Todo App</h3>
+  <input type="text"  placeholder="{{somePlaceholder}}"  [(ngModel)]="todo" (keyup.enter)="addtodo($event)" />
+   <ul>    
+    <li *ngFor="let todolist of TodoArr;let i = index">
+     <span [ngClass]="{'isStrike': todolist.done}" > {{todolist.name}} </span> <button (click)="strike(todolist)">Done</button>
+    </li>
+    
+  </ul>
+
+</div>
+<hr/>
+<h4>Cart Count {{cartCount}}</h4>
+<app-cart-list [cartArr]="cartArr"></app-cart-list>
+
+<app-profile-card [posts]="postArr" [isAdmin]="true" (onPurchase)="onBuy($event)"></app-profile-card>
+<hr/>
+<h4 *ngFor="let t of ticketArr"> Movie name {{t.name}} tickets on cart: {{t.ticket}} </h4>
+<app-movie-ticket [movielist]="movieArr" (ticketPurchasedetails)="onPurchasedetails($event)" ></app-movie-ticket>

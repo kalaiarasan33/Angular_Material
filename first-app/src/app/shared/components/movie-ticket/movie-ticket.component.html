@@ -1,0 +1,30 @@
+<section>
+<p>
+  movie-ticket works!
+</p>
+
+
+  <div *ngFor="let obj of movielist" class="post-section">
+      <div class="post-title">
+          <h4>{{obj.name}}</h4>
+      </div>
+      
+      <img [src]="obj.banner"/>
+      <div class="post-tool">
+        
+        <a href="javascript:void(0)" *ngIf="!book;else dontShowTmp" (click)="onBook()" >Book Ticket </a> 
+        <ng-template #dontShowTmp>
+        <div >       
+          <input  [(ngModel)]="count" type="text" />
+          <button (click)="onPurchasedetails(obj)">buy</button>
+          <button (click)="onCancel()" >cancel</button>
+        </div>  
+      </ng-template>
+      
+        <!-- <a href="javascript:void(0)"  (click)="onBuy(obj)">Buy</a> -->
+
+      </div>
+      
+  </div>
+
+</section>

@@ -1,0 +1,16 @@
+<section>
+    <div *ngFor="let obj of posts" class="post-section">
+        <div class="post-title">
+            <h4>{{obj.name}}</h4>
+        </div>
+        
+        <img [src]="obj.banner"/>
+        <div class="post-tool">
+            <a href="javascript:void(0)" (click)="onLike(obj)">Like {{obj.like}}</a>
+            <a href="javascript:void(0)"  *ngIf="admin">Comment {{obj.comment}}</a>
+            <a href="javascript:void(0)"  (click)="onBuy(obj)">Buy</a>
+
+        </div>
+        
+    </div>
+</section>

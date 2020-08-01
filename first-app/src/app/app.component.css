@@ -1,0 +1,25 @@
+.isYellow{
+    color:yellow;
+    font-size: 20px;
+}
+.isPink{
+    color:pink;
+    font-size: 20px;
+}
+
+.isRed{
+    color:red;
+    font-size: 20px;
+
+}
+
+.isBlue{
+    color:blue;
+    font-size: 20px;
+
+}
+
+.isStrike {
+    text-decoration: line-through;
+  }
+  

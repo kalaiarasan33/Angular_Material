@@ -1,0 +1,10 @@
+<div *ngIf="cartArr.length > 0; else emptyCartTemp">
+  <ul>
+    <li *ngFor="let obj of cartArr">
+      {{obj.name}}
+    </li>
+  </ul>
+</div>
+<ng-template #emptyCartTemp>
+  <p>Cart is empty</p>
+</ng-template>
