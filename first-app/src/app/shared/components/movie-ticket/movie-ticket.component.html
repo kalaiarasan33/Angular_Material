@@ -8,8 +8,9 @@
       <div class="post-title">
           <h4>{{obj.name}}</h4>
       </div>
+      <a href="javascript:void(0)" (click)="onMainNavigate(obj)" ><img [src]="obj.banner"/></a>
       
-      <img [src]="obj.banner"/>
+      
       <div class="post-tool">
         
         <a href="javascript:void(0)" *ngIf="!book;else dontShowTmp" (click)="onBook()" >Book Ticket </a> 

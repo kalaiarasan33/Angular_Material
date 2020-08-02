@@ -1,4 +1,5 @@
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-ticket',
@@ -13,7 +14,9 @@ export class MovieTicketComponent implements OnInit {
  
 
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() { }
 
@@ -30,4 +33,13 @@ export class MovieTicketComponent implements OnInit {
     this.ticketPurchasedetails.emit(obj);
     this.count = null;
 }
+
+onMainNavigate(obj){
+  if (obj != null){
+  this.router.navigate(['/movie-details'],{state:{ data: { 'name': obj.name,'actor': obj.actor,'director': obj.director}} })
+  }else{
+    this.router.navigate(['/'])
+  }
+}
+
 }
