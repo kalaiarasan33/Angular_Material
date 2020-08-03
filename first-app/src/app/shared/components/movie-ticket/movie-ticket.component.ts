@@ -35,11 +35,10 @@ export class MovieTicketComponent implements OnInit {
 }
 
 onMainNavigate(obj){
-  if (obj != null){
+
   this.router.navigate(['/movie-details'],{state:{ data: { 'name': obj.name,'actor': obj.actor,'director': obj.director}} })
-  }else{
-    this.router.navigate(['/'])
-  }
+  
+  
 }
 
 }

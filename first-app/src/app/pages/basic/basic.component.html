@@ -1,3 +1,5 @@
+<div id="pdfTable" #pdfTable >
+
 <h4>NgIf Example</h4>
 <div *ngIf="toShow;else dontShowTmp">
   <h2 >{{firstname+' '+lastname}}</h2>
@@ -44,7 +46,13 @@
  
 
 </div>
+<div> <button  (click)="downloadAsPDF()">Export To PDF</button></div>
+
+</div>
+
+
 <div>
+
 <button (click)="changeimage()" >ToggleImage</button>
 
 <img [src]="srcURL" />
@@ -76,3 +84,6 @@
 <h3>Examples custom directives- hostbinding and hostlistner</h3>
 <input type="text" appInputBorder [isError]="true" />
 <input type="text" appInputBorder [isError]="false"   />
+
+
+

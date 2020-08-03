@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,10 @@ import { MainComponent } from './pages/main/main.component';
 import { MainDetailComponent } from './pages/main-detail/main-detail.component';
 import { IndexComponent } from './pages/index/index.component';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
+import { CstFilterPipe } from './shared/pipes/filter.pipe';
+import { NumstringPipe } from './shared/pipes/numstring.pipe';
+
+
 
 
 @NgModule({
@@ -28,12 +33,15 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
     MainComponent,
     MainDetailComponent,
     IndexComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    CstFilterPipe,
+    NumstringPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

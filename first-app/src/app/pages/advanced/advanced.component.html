@@ -1,3 +1,62 @@
-<p>
-  advanced works!
-</p>
+<h2>{{name | lowercase}}</h2>
+<h2>{{currentDate | date:'dd/MM/yyyy'}}</h2>
+<h2>{{6589.23 | currency:"INR"}}</h2>
+<h2>{{tempObj | json}}</h2>
+<input type="text" [(ngModel)]="filterText" placeholder="Search"/>
+<h2 *ngFor="let val of monthArr | slice:0:4 | cstfilter:filterText:'UC'  ">
+  {{val | lowercase}}
+</h2>
+
+
+<h3>
+  {{ num | numstring}}
+
+</h3>
+
+<div>
+  <h3>Todo App</h3>
+  <input type="text"  placeholder="{{somePlaceholder}}"  [(ngModel)]="todo" (keyup.enter)="addtodo($event)" />
+   <ul>    
+    <li *ngFor="let todolist of TodoArr;let i = index">
+
+
+        <span [ngClass]="{'isStrike': todolist.done}" > {{todolist.name}} </span> 
+        <button (click)="strike(todolist)">Done</button>   
+        <button (click)="Removetodo(i)">Remove</button> 
+
+    </li>
+    
+  </ul>
+
+</div>
+<hr/>
+<h4>User Table</h4>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Email
+      </th>
+      <th>
+        City 
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let obj of userArr">
+      <td>
+        {{obj.name}}
+      </td>
+      <td>
+        {{obj.email}}
+      </td>
+      <td>
+        {{obj.address.city}}
+      </td>
+    </tr>
+  </tbody>
+</table>
