@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,ViewChild, OnInit ,ElementRef} from '@angular/core';
+import * as jsPDF  from 'jspdf'
+
 
 @Component({
   selector: 'app-basic',
@@ -58,6 +60,7 @@ export class BasicComponent implements OnInit {
   cartCount: number = 0;
   cartArr: Array<any> = [];
   ticketArr: Array<any> = [];
+  @ViewChild('pdfTable', {static: false}) pdfTable: ElementRef;
 
   constructor() {
 
@@ -123,4 +126,23 @@ export class BasicComponent implements OnInit {
     this.ticketArr.push($event)
   }
 
+  public downloadAsPDF() {
+    const doc = new jsPDF();
+
+    const specialElementHandlers = {
+      '#editor': function (element, renderer) {
+        return true;
+      }
+    };
+
+    const pdfTable = this.pdfTable.nativeElement;
+
+    doc.fromHTML(pdfTable.innerHTML, 15, 15, {
+      width: 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    doc.save('tableToPdf.pdf');
+  }
 }
+

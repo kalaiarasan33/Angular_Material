@@ -1,0 +1,27 @@
+<div class="container my-4">
+<div>
+  <form>
+    
+    <div class="form-group">
+      <div class="form-group col-md-3">
+      <label for="exampleInputEmail1">Student Name</label>
+      <input type="text"  [(ngModel)]="student" name="name" class="form-control"  aria-describedby="emailHelp" >      
+    </div>
+  </div>
+  <div class="form-group col-md-3">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Department</label>
+      <input type="text"  [(ngModel)]="depart" name="department" class="form-control"  aria-describedby="emailHelp" >      
+    </div>
+    <div>
+      <button type="submit"  [routerLink]="['/index']" class="btn btn-primary" >Cancel</button>            <button type="submit" (click)="adduser()" class="btn btn-primary ml-4" >Submit</button>
+      
+      </div>
+    </div>
+
+
+
+  </form>
+  
+</div>
+</div>
